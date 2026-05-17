@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Studio — AI 기능을 실제 운영 가능한 제품으로</title>
+  <meta name="description" content="LLM·VLM·Computer Vision을 실제 서비스로 만드는 AI 프로덕트 스튜디오. 관리자 페이지, 자동 리포트, API 연동, 운영 인프라까지." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-count"><span id="loaderCount">0</span><span class="loader-percent">%</span></div>
+      <div class="loader-bar"><div class="loader-bar-fill" id="loaderBar"></div></div>
+      <div class="loader-text">LOADING&nbsp;·&nbsp;AI&nbsp;PRODUCT&nbsp;STUDIO</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-mark">◉</span>
+      <span class="nav-logo-text">AI&nbsp;STUDIO</span>
+    </a>
+    <nav class="nav-menu">
+      <a href="#what-we-build" data-link>What We Build</a>
+      <a href="#projects" data-link>Projects</a>
+      <a href="#trust" data-link>Trust</a>
+      <a href="#faq" data-link>FAQ</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">
+      <span>Start a project</span>
+      <span class="nav-cta-arrow">↗</span>
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-noise"></div>
+
+    <div class="hero-ticker">
+      <div class="ticker-track">
+        <span>AI&nbsp;PRODUCT&nbsp;STUDIO</span><span class="ticker-dot">●</span>
+        <span>LLM&nbsp;·&nbsp;VLM&nbsp;·&nbsp;VISION</span><span class="ticker-dot">●</span>
+        <span>SHIPPED&nbsp;IN&nbsp;PRODUCTION</span><span class="ticker-dot">●</span>
+        <span>AI&nbsp;PRODUCT&nbsp;STUDIO</span><span class="ticker-dot">●</span>
+        <span>LLM&nbsp;·&nbsp;VLM&nbsp;·&nbsp;VISION</span><span class="ticker-dot">●</span>
+        <span>SHIPPED&nbsp;IN&nbsp;PRODUCTION</span><span class="ticker-dot">●</span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-meta">
+        <div class="hero-meta-row"><span class="dot"></span><span>AVAILABLE&nbsp;FOR&nbsp;NEW&nbsp;PROJECTS&nbsp;·&nbsp;2026</span></div>
+        <div class="hero-meta-row"><span class="hero-meta-label">[01]</span>&nbsp;AI&nbsp;PRODUCT&nbsp;STUDIO&nbsp;BASED&nbsp;IN&nbsp;SEOUL</div>
+      </div>
+
+      <h1 class="hero-title" data-split>
+        <span class="line"><span class="word">AI</span> <span class="word">기능을</span></span>
+        <span class="line"><span class="word">실제</span> <span class="word">운영</span> <span class="word">가능한</span></span>
+        <span class="line"><span class="word accent">제품으로</span> <span class="word">만듭니다.</span></span>
+      </h1>
+
+      <div class="hero-sub">
+        <div class="hero-sub-divider"></div>
+        <p>
+          AI 모델 개발에서 멈추지 않습니다. 관리자 페이지, 자동 리포트, API 연동,
+          운영 인프라까지 함께 만들어 클라이언트가 <em>다음 날부터 쓸 수 있는</em> 서비스로 완성합니다.
+        </p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" data-count="7">0</div>
+          <div class="stat-label">YEARS<br/>AI&nbsp;ENGINEERING</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="4">0</div>
+          <div class="stat-label">PRODUCTS<br/>IN&nbsp;PRODUCTION</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num-wrap"><span class="stat-num" data-count="100">0</span><span class="stat-pct">%</span></div>
+          <div class="stat-label">DEPLOYED<br/>NOT&nbsp;PROTOTYPES</div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <span class="hero-scroll-arrow">↓</span>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-side-row"><span>LAT</span><span>37.5665°N</span></div>
+      <div class="hero-side-row"><span>LON</span><span>126.9780°E</span></div>
+      <div class="hero-side-row"><span>LOC</span><span>SEOUL&nbsp;·&nbsp;KR</span></div>
+      <div class="hero-side-row"><span>VER</span><span>v4.0</span></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <section class="marquee">
+    <div class="marquee-track">
+      <span>LLM</span><span class="marquee-star">✦</span>
+      <span>VLM</span><span class="marquee-star">✦</span>
+      <span>RAG</span><span class="marquee-star">✦</span>
+      <span>COMPUTER&nbsp;VISION</span><span class="marquee-star">✦</span>
+      <span>EDGE&nbsp;AI</span><span class="marquee-star">✦</span>
+      <span>OCR</span><span class="marquee-star">✦</span>
+      <span>SAAS</span><span class="marquee-star">✦</span>
+      <span>GOV&nbsp;EDI</span><span class="marquee-star">✦</span>
+      <span>LLM</span><span class="marquee-star">✦</span>
+      <span>VLM</span><span class="marquee-star">✦</span>
+      <span>RAG</span><span class="marquee-star">✦</span>
+      <span>COMPUTER&nbsp;VISION</span><span class="marquee-star">✦</span>
+      <span>EDGE&nbsp;AI</span><span class="marquee-star">✦</span>
+      <span>OCR</span><span class="marquee-star">✦</span>
+      <span>SAAS</span><span class="marquee-star">✦</span>
+      <span>GOV&nbsp;EDI</span><span class="marquee-star">✦</span>
+    </div>
+  </section>
+
+  <!-- What We Build -->
+  <section id="what-we-build" class="section build">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <span class="section-line"></span>
+        <span class="section-name">WHAT&nbsp;WE&nbsp;BUILD</span>
+      </div>
+      <h2 class="section-title">
+        <span data-reveal>모델만이</span>
+        <span data-reveal>아니라,</span>
+        <span data-reveal class="italic">제품을</span>
+        <span data-reveal>만듭니다.</span>
+      </h2>
+      <p class="section-desc" data-reveal>
+        4가지 영역에서 AI를 실제 운영 가능한 서비스로 만듭니다.
+        프로토타입이 아닌 클라이언트가 다음날부터 쓸 수 있는 제품을 목표로 합니다.
+      </p>
+    </div>
+
+    <div class="build-grid">
+
+      <article class="build-card" data-card>
+        <div class="build-card-head">
+          <span class="build-num">01</span>
+          <span class="build-tag">AI&nbsp;SERVICE</span>
+        </div>
+        <div class="build-visual">
+          <svg viewBox="0 0 200 200" class="build-svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff5b1f"/>
+                <stop offset="1" stop-color="#ffb27a"/>
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="url(#g1)" stroke-width="1.2"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="url(#g1)" stroke-width="1.2"/>
+            <circle cx="100" cy="100" r="30" fill="url(#g1)" opacity="0.85"/>
+            <g stroke="url(#g1)" stroke-width="1" opacity="0.7">
+              <line x1="30" y1="100" x2="170" y2="100"/>
+              <line x1="100" y1="30" x2="100" y2="170"/>
+              <line x1="50" y1="50" x2="150" y2="150"/>
+              <line x1="150" y1="50" x2="50" y2="150"/>
+            </g>
+          </svg>
+        </div>
+        <h3 class="build-title">AI 서비스 구축</h3>
+        <p class="build-desc">LLM·VLM·Computer Vision을 실제 서비스 플로우에 연결합니다.</p>
+        <ul class="build-keys">
+          <li>LLM·VLM API</li>
+          <li>RAG 챗봇</li>
+          <li>AI 추천</li>
+          <li>도메인 AI 자동화</li>
+        </ul>
+      </article>
+
+      <article class="build-card" data-card>
+        <div class="build-card-head">
+          <span class="build-num">02</span>
+          <span class="build-tag">SAAS&nbsp;PLATFORM</span>
+        </div>
+        <div class="build-visual">
+          <svg viewBox="0 0 200 200" class="build-svg">
+            <defs>
+              <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff5b1f"/>
+                <stop offset="1" stop-color="#ffb27a"/>
+              </linearGradient>
+            </defs>
+            <rect x="30" y="30" width="140" height="20" fill="url(#g2)" opacity="0.4"/>
+            <rect x="30" y="60" width="80" height="50" fill="url(#g2)" opacity="0.8"/>
+            <rect x="120" y="60" width="50" height="50" fill="none" stroke="url(#g2)" stroke-width="1.5"/>
+            <rect x="30" y="120" width="50" height="50" fill="none" stroke="url(#g2)" stroke-width="1.5"/>
+            <rect x="90" y="120" width="80" height="50" fill="url(#g2)" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="build-title">웹·앱 플랫폼</h3>
+        <p class="build-desc">운영형 SaaS 플랫폼, 관리자 대시보드, 결제·회원·권한·정산 통합.</p>
+        <ul class="build-keys">
+          <li>SaaS 플랫폼</li>
+          <li>관리자 콘솔</li>
+          <li>권한·결제</li>
+          <li>대시보드</li>
+        </ul>
+      </article>
+
+      <article class="build-card" data-card>
+        <div class="build-card-head">
+          <span class="build-num">03</span>
+          <span class="build-tag">AUTOMATION</span>
+        </div>
+        <div class="build-visual">
+          <svg viewBox="0 0 200 200" class="build-svg">
+            <defs>
+              <linearGradient id="g3" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff5b1f"/>
+                <stop offset="1" stop-color="#ffb27a"/>
+              </linearGradient>
+            </defs>
+            <path d="M30,60 L70,60 L80,40 L120,40 L130,60 L170,60" fill="none" stroke="url(#g3)" stroke-width="1.5"/>
+            <path d="M30,100 L170,100" fill="none" stroke="url(#g3)" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <path d="M30,140 L60,140 L70,160 L130,160 L140,140 L170,140" fill="none" stroke="url(#g3)" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="14" fill="url(#g3)"/>
+            <circle cx="40" cy="60" r="4" fill="url(#g3)"/>
+            <circle cx="160" cy="60" r="4" fill="url(#g3)"/>
+            <circle cx="40" cy="140" r="4" fill="url(#g3)"/>
+            <circle cx="160" cy="140" r="4" fill="url(#g3)"/>
+          </svg>
+        </div>
+        <h3 class="build-title">업무 자동화·운영 도구</h3>
+        <p class="build-desc">OCR·문서 자동화, 데이터 파이프라인, 내부 관리 시스템.</p>
+        <ul class="build-keys">
+          <li>OCR 자동화</li>
+          <li>데이터 파이프라인</li>
+          <li>운영 자동화</li>
+          <li>문서 처리</li>
+        </ul>
+      </article>
+
+      <article class="build-card" data-card>
+        <div class="build-card-head">
+          <span class="build-num">04</span>
+          <span class="build-tag">EDGE&nbsp;AI</span>
+        </div>
+        <div class="build-visual">
+          <svg viewBox="0 0 200 200" class="build-svg">
+            <defs>
+              <linearGradient id="g4" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff5b1f"/>
+                <stop offset="1" stop-color="#ffb27a"/>
+              </linearGradient>
+            </defs>
+            <rect x="40" y="50" width="120" height="80" rx="6" fill="none" stroke="url(#g4)" stroke-width="1.5"/>
+            <rect x="60" y="70" width="80" height="40" fill="url(#g4)" opacity="0.7"/>
+            <line x1="100" y1="130" x2="100" y2="155" stroke="url(#g4)" stroke-width="1.5"/>
+            <rect x="60" y="155" width="80" height="6" fill="url(#g4)"/>
+            <circle cx="80" cy="90" r="3" fill="#fff"/>
+            <circle cx="100" cy="90" r="3" fill="#fff"/>
+            <circle cx="120" cy="90" r="3" fill="#fff"/>
+          </svg>
+        </div>
+        <h3 class="build-title">Edge AI · Computer Vision</h3>
+        <p class="build-desc">Hailo NPU·Jetson 기반 엣지 디바이스. 영상 분석·관제·온디바이스 추론.</p>
+        <ul class="build-keys">
+          <li>Hailo NPU</li>
+          <li>객체탐지</li>
+          <li>관제 시스템</li>
+          <li>온디바이스 AI</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="best-fit">
+      <div class="best-fit-head">
+        <span class="section-num">03</span>
+        <span class="section-line"></span>
+        <span class="section-name">BEST&nbsp;FIT</span>
+      </div>
+      <h3 class="best-fit-title">이런 분과 잘 맞습니다.</h3>
+      <ul class="best-fit-list">
+        <li><span>01</span><p>신규 AI 서비스 MVP를 빠르게 출시해야 하는 팀</p></li>
+        <li><span>02</span><p>운영 중인 제품에 AI 기능을 추가하려는 팀</p></li>
+        <li><span>03</span><p>수기 입력·반복 업무가 많아 OCR·자동화가 필요한 조직</p></li>
+        <li><span>04</span><p>정부 EDI·공공 API 연동이 필요한 산업 특화 비즈니스</p></li>
+        <li><span>05</span><p>영상 분석·관제 시스템이 필요한 현장 운영 회사</p></li>
+        <li><span>06</span><p>모델 개발자는 있지만 서비스화·운영툴이 부족한 팀</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section projects">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <span class="section-line"></span>
+        <span class="section-name">SELECTED&nbsp;PROJECTS</span>
+      </div>
+      <h2 class="section-title">
+        <span data-reveal>4개의</span>
+        <span data-reveal class="italic">실서비스.</span>
+        <span data-reveal>모두 배포 완료.</span>
+      </h2>
+    </div>
+
+    <div class="project-list">
+
+      <!-- Project 01 — Customs EDI -->
+      <article class="project" data-project>
+        <div class="project-header">
+          <div class="project-index">P/01</div>
+          <div class="project-tags">
+            <span>GOV&nbsp;EDI</span>
+            <span>FASTAPI</span>
+            <span>WINDOWS&nbsp;RELAY</span>
+            <span>TAILSCALE</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-headline">
+            <h3 class="project-name">한국 관세청 EDI<br/><span class="italic">연동 시스템.</span></h3>
+            <p class="project-sub">UNI-PASS · KCSAPI4.dll · GOVCBR830 · 자동 면장 발급</p>
+          </div>
+          <div class="project-media">
+            <div class="project-screen">
+              <div class="screen-bar">
+                <span></span><span></span><span></span>
+                <div class="screen-url">unipass-relay / api</div>
+              </div>
+              <div class="screen-body screen-edi">
+                <div class="edi-row"><span class="edi-key">POST</span><span class="edi-val">/edi/declare</span><span class="edi-ok">200 OK</span></div>
+                <div class="edi-row"><span class="edi-key">DOC</span><span class="edi-val">GOVCBR830</span><span class="edi-ok">VALID</span></div>
+                <div class="edi-row"><span class="edi-key">KCS</span><span class="edi-val">testbed</span><span class="edi-ok">C200</span></div>
+                <div class="edi-row"><span class="edi-key">SHPM</span><span class="edi-val">cmplYn=Y</span><span class="edi-ok">CLEARED</span></div>
+                <div class="edi-bar">
+                  <div class="edi-bar-fill"></div>
+                </div>
+                <div class="edi-meta">KOREAN&nbsp;CUSTOMS&nbsp;SERVICE&nbsp;·&nbsp;LIVE</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-info-block">
+              <div class="info-label">BACKGROUND</div>
+              <p>KCSAPI4.dll은 32-bit Windows 전용. 대부분의 현대 ERP·SaaS는 Linux 기반이라 직접 연동이 불가능합니다.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">SOLUTION</div>
+              <p>Windows Relay Server + HTTP API + Tailscale 메시 VPN으로 Linux SaaS에서 면장 발급을 자동 호출합니다.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">OUTCOME</div>
+              <ul class="info-list">
+                <li>KCS 테스트서버 <strong>C200 정상처리</strong> 달성</li>
+                <li>GOVCBR830 스키마 완전 검증</li>
+                <li>수기 발급 작업 완전 제거</li>
+                <li>관세청 <strong>S/W 개발자 등록 완료</strong></li>
+              </ul>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">STACK</div>
+              <div class="info-stack">
+                <span>Python 3.12</span><span>KCSAPI4.dll</span><span>FastAPI</span>
+                <span>Windows Server</span><span>Tailscale</span><span>PostgreSQL</span><span>Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 02 — Satellite AI -->
+      <article class="project" data-project>
+        <div class="project-header">
+          <div class="project-index">P/02</div>
+          <div class="project-tags">
+            <span>PYTORCH</span><span>YOLO</span><span>POSTGIS</span><span>GDAL</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-headline">
+            <h3 class="project-name">위성영상 AI<br/><span class="italic">분석 SaaS.</span></h3>
+            <p class="project-sub">변화탐지 · 농경지 분석 · 자동 리포트 · 지도 기반 대시보드</p>
+          </div>
+          <div class="project-media">
+            <div class="project-screen project-screen--sat">
+              <svg viewBox="0 0 480 280" class="sat-svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="sat-bg" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#0e1810"/>
+                    <stop offset="1" stop-color="#1e2a1f"/>
+                  </linearGradient>
+                  <pattern id="sat-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,91,31,0.12)" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="480" height="280" fill="url(#sat-bg)"/>
+                <rect width="480" height="280" fill="url(#sat-grid)"/>
+
+                <!-- terrain blobs -->
+                <path d="M0,180 Q80,140 160,170 T320,180 T480,160 L480,280 L0,280 Z" fill="rgba(110,180,120,0.18)"/>
+                <path d="M0,210 Q120,180 240,210 T480,200 L480,280 L0,280 Z" fill="rgba(80,150,100,0.22)"/>
+
+                <!-- analyzed plots -->
+                <rect x="60" y="60" width="80" height="60" fill="rgba(255,91,31,0.08)" stroke="#ff5b1f" stroke-width="1" stroke-dasharray="3 2"/>
+                <text x="100" y="93" text-anchor="middle" fill="#ff5b1f" font-size="11" font-family="Inter, sans-serif">+12.4%</text>
+
+                <rect x="200" y="40" width="100" height="50" fill="rgba(110,255,160,0.08)" stroke="#7cf2a6" stroke-width="1" stroke-dasharray="3 2"/>
+                <text x="250" y="70" text-anchor="middle" fill="#7cf2a6" font-size="11" font-family="Inter, sans-serif">CROP&nbsp;A</text>
+
+                <rect x="340" y="80" width="90" height="70" fill="rgba(255,200,100,0.08)" stroke="#ffd075" stroke-width="1" stroke-dasharray="3 2"/>
+                <text x="385" y="120" text-anchor="middle" fill="#ffd075" font-size="11" font-family="Inter, sans-serif">CHANGE</text>
+
+                <!-- scan line -->
+                <line x1="0" y1="140" x2="480" y2="140" stroke="rgba(255,91,31,0.6)" stroke-width="0.6" stroke-dasharray="2 4"/>
+                <circle cx="100" cy="90" r="3" fill="#ff5b1f"/>
+                <circle cx="250" cy="65" r="3" fill="#7cf2a6"/>
+                <circle cx="385" cy="115" r="3" fill="#ffd075"/>
+
+                <!-- HUD -->
+                <text x="20" y="30" fill="#ff5b1f" font-size="10" font-family="Inter" font-weight="600">SAT.IMG · ANALYSIS</text>
+                <text x="460" y="30" text-anchor="end" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter">37.5665°N · 126.9780°E</text>
+                <text x="20" y="265" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">ZOOM&nbsp;14 · TIFF · 2.3GB</text>
+                <text x="460" y="265" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">PROCESSED&nbsp;IN&nbsp;42s</text>
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-info-block">
+              <div class="info-label">BACKGROUND</div>
+              <p>위성영상은 한 장당 수 GB. 전문가 판독 의존도가 높아 비전문가가 활용할 수 있는 SaaS가 부재했습니다.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">SOLUTION</div>
+              <p>업로드 → AI 분석 → 지도 시각화 → 자동 리포트까지 엔드투엔드. 비전문가도 즉시 활용 가능한 인터페이스.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">OUTCOME</div>
+              <ul class="info-list">
+                <li>광역 영상 분석 시간 <strong>90% 이상 단축</strong></li>
+                <li>지도 기반 비전문가 SaaS 인터페이스</li>
+                <li>확장 가능한 분석 모듈 구조</li>
+                <li>실서비스 배포 완료</li>
+              </ul>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">STACK</div>
+              <div class="info-stack">
+                <span>Python</span><span>PyTorch</span><span>YOLO</span><span>OpenCV</span>
+                <span>GDAL</span><span>Rasterio</span><span>FastAPI</span><span>PostGIS</span><span>Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 03 — Digital Signage Edge AI -->
+      <article class="project" data-project>
+        <div class="project-header">
+          <div class="project-index">P/03</div>
+          <div class="project-tags">
+            <span>HAILO&nbsp;NPU</span><span>RETINAFACE</span><span>YOLO</span><span>ON-DEVICE</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-headline">
+            <h3 class="project-name">디지털 사이니지<br/><span class="italic">광고효과 측정.</span></h3>
+            <p class="project-sub">시청자 성별·연령 실시간 분석 · 온디바이스 처리 · 자동 리포트</p>
+          </div>
+          <div class="project-media">
+            <div class="project-screen project-screen--sign">
+              <svg viewBox="0 0 480 280" class="sign-svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="sign-bg" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#1a1208"/>
+                    <stop offset="1" stop-color="#2a1a0a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="480" height="280" fill="url(#sign-bg)"/>
+
+                <!-- camera view frame -->
+                <rect x="20" y="20" width="280" height="240" fill="rgba(0,0,0,0.5)" stroke="rgba(255,91,31,0.4)" stroke-width="1"/>
+                <text x="30" y="38" fill="#ff5b1f" font-size="10" font-family="Inter" font-weight="600">CAM&nbsp;01 · LIVE</text>
+
+                <!-- silhouette 1 -->
+                <g transform="translate(70,80)">
+                  <circle cx="20" cy="20" r="18" fill="rgba(255,255,255,0.15)" stroke="#ff5b1f" stroke-width="1.5"/>
+                  <rect x="2" y="40" width="36" height="60" fill="rgba(255,255,255,0.1)" stroke="#ff5b1f" stroke-width="1.5"/>
+                  <text x="50" y="20" fill="#ff5b1f" font-size="10" font-family="Inter">F · 24–32</text>
+                  <text x="50" y="34" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">conf 0.94</text>
+                </g>
+
+                <!-- silhouette 2 -->
+                <g transform="translate(170,130)">
+                  <circle cx="20" cy="20" r="18" fill="rgba(255,255,255,0.15)" stroke="#7cf2a6" stroke-width="1.5"/>
+                  <rect x="2" y="40" width="36" height="60" fill="rgba(255,255,255,0.1)" stroke="#7cf2a6" stroke-width="1.5"/>
+                  <text x="50" y="20" fill="#7cf2a6" font-size="10" font-family="Inter">M · 35–45</text>
+                  <text x="50" y="34" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">conf 0.91</text>
+                </g>
+
+                <!-- side panel -->
+                <rect x="320" y="20" width="140" height="240" fill="rgba(0,0,0,0.4)" stroke="rgba(255,91,31,0.3)"/>
+                <text x="330" y="38" fill="#ff5b1f" font-size="10" font-family="Inter" font-weight="600">DEMOGRAPHICS</text>
+
+                <text x="330" y="62" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Inter">FEMALE</text>
+                <rect x="330" y="68" width="120" height="6" fill="rgba(255,255,255,0.1)"/>
+                <rect x="330" y="68" width="72" height="6" fill="#ff5b1f"/>
+                <text x="455" y="74" text-anchor="end" fill="#fff" font-size="9" font-family="Inter">60%</text>
+
+                <text x="330" y="92" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Inter">MALE</text>
+                <rect x="330" y="98" width="120" height="6" fill="rgba(255,255,255,0.1)"/>
+                <rect x="330" y="98" width="48" height="6" fill="#7cf2a6"/>
+                <text x="455" y="104" text-anchor="end" fill="#fff" font-size="9" font-family="Inter">40%</text>
+
+                <text x="330" y="130" fill="rgba(255,255,255,0.7)" font-size="9" font-family="Inter">AGE&nbsp;DIST.</text>
+                <g transform="translate(330,140)">
+                  <rect x="0" y="60" width="14" height="20" fill="#ff5b1f"/>
+                  <rect x="18" y="40" width="14" height="40" fill="#ff5b1f"/>
+                  <rect x="36" y="20" width="14" height="60" fill="#ff5b1f"/>
+                  <rect x="54" y="35" width="14" height="45" fill="#ff5b1f"/>
+                  <rect x="72" y="50" width="14" height="30" fill="#ff5b1f"/>
+                  <rect x="90" y="65" width="14" height="15" fill="#ff5b1f"/>
+                </g>
+
+                <text x="330" y="245" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">HAILO-8 · 26&nbsp;TOPS</text>
+                <text x="330" y="258" fill="rgba(124,242,166,0.8)" font-size="8" font-family="Inter">● ON-DEVICE&nbsp;ONLY</text>
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-info-block">
+              <div class="info-label">BACKGROUND</div>
+              <p>DOOH 광고주는 노출 횟수가 아닌 실제 시청자 데이터를 요구. 클라우드 영상 분석은 네트워크·개인정보 부담.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">SOLUTION</div>
+              <p>Hailo NPU 기반 저전력 온디바이스 처리. 영상은 디바이스 내부에서만, 집계 데이터만 서버 전송.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">OUTCOME</div>
+              <ul class="info-list">
+                <li>실시간 다중 객체 처리 성능 확보</li>
+                <li>영상 비저장·집계 전송 비식별 구조</li>
+                <li>광고효과 측정 자동화</li>
+                <li>실서비스 배포 완료</li>
+              </ul>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">STACK</div>
+              <div class="info-stack">
+                <span>Python</span><span>Hailo&nbsp;NPU</span><span>HEF</span><span>YOLO</span>
+                <span>RetinaFace</span><span>OpenCV</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 04 — Document OCR -->
+      <article class="project" data-project>
+        <div class="project-header">
+          <div class="project-index">P/04</div>
+          <div class="project-tags">
+            <span>VLM</span><span>PADDLEOCR</span><span>vLLM</span><span>GEMINI</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-headline">
+            <h3 class="project-name">한국 행정문서<br/><span class="italic">자동 인식 SaaS.</span></h3>
+            <p class="project-sub">2-Pass VLM OCR · 문서 자동 분류 · 필드 자동 추출</p>
+          </div>
+          <div class="project-media">
+            <div class="project-screen project-screen--ocr">
+              <svg viewBox="0 0 480 280" class="ocr-svg" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="280" fill="#0a0a0a"/>
+                <!-- document panel -->
+                <rect x="20" y="20" width="200" height="240" fill="#f5f0e8" rx="2"/>
+                <rect x="32" y="32" width="80" height="8" fill="#000"/>
+                <text x="32" y="50" font-size="6" fill="#666" font-family="Inter">자동차등록증</text>
+                <line x1="32" y1="56" x2="208" y2="56" stroke="#999" stroke-width="0.3"/>
+                <rect x="32" y="64" width="60" height="4" fill="#999"/>
+                <rect x="32" y="74" width="170" height="4" fill="#333"/>
+                <rect x="32" y="88" width="60" height="4" fill="#999"/>
+                <rect x="32" y="98" width="130" height="4" fill="#333"/>
+                <rect x="32" y="112" width="60" height="4" fill="#999"/>
+                <rect x="32" y="122" width="150" height="4" fill="#333"/>
+
+                <!-- detection boxes -->
+                <rect x="30" y="70" width="174" height="14" fill="none" stroke="#ff5b1f" stroke-width="1" stroke-dasharray="2 2"/>
+                <rect x="30" y="94" width="134" height="14" fill="none" stroke="#ff5b1f" stroke-width="1" stroke-dasharray="2 2"/>
+                <rect x="30" y="118" width="154" height="14" fill="none" stroke="#ff5b1f" stroke-width="1" stroke-dasharray="2 2"/>
+
+                <!-- arrow -->
+                <line x1="230" y1="140" x2="265" y2="140" stroke="#ff5b1f" stroke-width="1.5"/>
+                <polygon points="265,135 275,140 265,145" fill="#ff5b1f"/>
+
+                <!-- json output -->
+                <rect x="285" y="20" width="175" height="240" fill="#111" stroke="rgba(255,91,31,0.3)" rx="2"/>
+                <text x="295" y="35" fill="#ff5b1f" font-size="9" font-family="Inter" font-weight="600">EXTRACTED&nbsp;·&nbsp;JSON</text>
+                <line x1="295" y1="42" x2="450" y2="42" stroke="rgba(255,91,31,0.3)" stroke-width="0.5"/>
+                <g font-family="Inter" font-size="9" fill="#7cf2a6">
+                  <text x="295" y="60">"doc": "vehicle_reg",</text>
+                  <text x="295" y="78" fill="rgba(255,255,255,0.4)">"vin":</text>
+                  <text x="325" y="78" fill="#fff">"KMHJ381..."</text>
+                  <text x="295" y="96" fill="rgba(255,255,255,0.4)">"plate":</text>
+                  <text x="333" y="96" fill="#fff">"12가3456"</text>
+                  <text x="295" y="114" fill="rgba(255,255,255,0.4)">"owner":</text>
+                  <text x="335" y="114" fill="#fff">"홍길동"</text>
+                  <text x="295" y="132" fill="rgba(255,255,255,0.4)">"date":</text>
+                  <text x="328" y="132" fill="#fff">"2024-11-30"</text>
+                  <text x="295" y="150" fill="rgba(255,255,255,0.4)">"engine":</text>
+                  <text x="338" y="150" fill="#fff">"G4FC..."</text>
+                  <text x="295" y="168" fill="rgba(255,255,255,0.4)">"conf":</text>
+                  <text x="328" y="168" fill="#ffd075">0.987</text>
+                  <text x="295" y="186" fill="rgba(255,255,255,0.4)">"valid":</text>
+                  <text x="335" y="186" fill="#7cf2a6">true</text>
+                </g>
+                <text x="295" y="240" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">PASS&nbsp;1 → CLASSIFY</text>
+                <text x="295" y="252" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">PASS&nbsp;2 → EXTRACT</text>
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-info-block">
+              <div class="info-label">BACKGROUND</div>
+              <p>수기 입력 비효율. 일반 OCR은 한국어 행정문서 양식에 미특화, VIN·사업자번호 오인식은 손실로 직결됩니다.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">SOLUTION</div>
+              <p>Pass 1에서 문서 종류 자동 분류, Pass 2에서 종류별 전용 프롬프트로 필드 추출. 검증 규칙 동시 적용.</p>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">OUTCOME</div>
+              <ul class="info-list">
+                <li>한국 행정문서 특화 추출 정확도 확보</li>
+                <li>수기 입력 업무 엔드투엔드 자동화</li>
+                <li>검수 부담 최소화</li>
+                <li>실서비스 배포 완료</li>
+              </ul>
+            </div>
+            <div class="project-info-block">
+              <div class="info-label">STACK</div>
+              <div class="info-stack">
+                <span>Python</span><span>PaddleOCR-VL</span><span>vLLM</span><span>Gemini&nbsp;API</span>
+                <span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section id="trust" class="section trust">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="section-num">05</span>
+        <span class="section-line"></span>
+        <span class="section-name">TRUST&nbsp;·&nbsp;TRACK&nbsp;RECORD</span>
+      </div>
+      <h2 class="section-title">
+        <span data-reveal>검증된</span>
+        <span data-reveal class="italic">이력으로</span>
+        <span data-reveal>증명합니다.</span>
+      </h2>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-num">7+</div>
+        <div class="trust-line"></div>
+        <h4>AI·ML 엔지니어 경력</h4>
+        <p>Computer Vision부터 LLM·VLM SaaS까지.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">M.S.</div>
+        <div class="trust-line"></div>
+        <h4>Inha University AI 석사과정</h4>
+        <p>최신 AI 연구 트렌드를 제품에 직결.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">CEO</div>
+        <div class="trust-line"></div>
+        <h4>AutoLoadSolution 대표</h4>
+        <p>중고차 수출 도메인 AI SaaS 직접 운영.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">2026</div>
+        <div class="trust-line"></div>
+        <h4>K-Startup 예비창업패키지</h4>
+        <p>인하대학교 주관 · 선정.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">C200</div>
+        <div class="trust-line"></div>
+        <h4>관세청 EDI 정상처리</h4>
+        <p>테스트서버 정합성 검증 완료.</p>
+      </div>
+      <div class="trust-card trust-card--highlight">
+        <div class="trust-num">100<span class="trust-num-pct">%</span></div>
+        <div class="trust-line"></div>
+        <h4>실서비스 배포</h4>
+        <p>데모 프로젝트 제외, 모든 사례 운영 배포.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq">
+    <div class="section-head">
+      <div class="section-label">
+        <span class="section-num">06</span>
+        <span class="section-line"></span>
+        <span class="section-name">FAQ</span>
+      </div>
+      <h2 class="section-title">
+        <span data-reveal>자주 묻는</span>
+        <span data-reveal class="italic">질문들.</span>
+      </h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" data-faq>
+        <summary>
+          <span class="faq-num">Q.01</span>
+          <span class="faq-q">어디까지 함께하나요?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p>기획 정리, 정보 구조 설계, 프론트엔드·백엔드 개발, AI 모델 통합, 정부 EDI 연동, 인프라 구축, 운영 안정화까지 프로젝트 상황에 맞게.</p>
+      </details>
+
+      <details class="faq-item" data-faq>
+        <summary>
+          <span class="faq-num">Q.02</span>
+          <span class="faq-q">어떤 프로젝트와 잘 맞나요?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p>AI 서비스 MVP, 운영 중 제품 AI 추가, OCR·문서 자동화, 정부 EDI·공공 API 연동, 산업 특화 SaaS 구축이 필요한 팀.</p>
+      </details>
+
+      <details class="faq-item" data-faq>
+        <summary>
+          <span class="faq-num">Q.03</span>
+          <span class="faq-q">AI 모델만 개발도 가능한가요?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p>가능합니다. 다만 모델만 만들고 끝나기보다 실제 서비스 통합 단계까지 함께 가는 것을 권장합니다. 운영 환경에서 모델 성능을 유지하려면 데이터 수집·재학습 파이프라인이 함께 설계되어야 하기 때문입니다.</p>
+      </details>
+
+      <details class="faq-item" data-faq>
+        <summary>
+          <span class="faq-num">Q.04</span>
+          <span class="faq-q">정부 EDI나 공공 API 연동 경험이 있나요?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p>네. 한국 관세청 EDI(UNI-PASS) 연동을 실제로 구축하여 상용까지 진행했습니다. S/W 개발자 등록 완료 및 테스트서버 C200 정상처리 검증 완료.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section id="contact" class="section contact">
+    <div class="contact-inner">
+      <div class="contact-label">
+        <span class="section-num">07</span>
+        <span class="section-line"></span>
+        <span class="section-name">LET'S&nbsp;BUILD&nbsp;TOGETHER</span>
+      </div>
+
+      <h2 class="contact-title">
+        <span class="line">
+          <span class="contact-word" data-reveal>AI를</span>
+          <span class="contact-word" data-reveal>제품으로,</span>
+        </span>
+        <span class="line">
+          <span class="contact-word italic" data-reveal>지금</span>
+          <span class="contact-word" data-reveal>시작해보세요.</span>
+        </span>
+      </h2>
+
+      <div class="contact-actions">
+        <a href="mailto:contact@aistudio.kr" class="contact-cta">
+          <span class="contact-cta-label">EMAIL</span>
+          <span class="contact-cta-value">contact@aistudio.kr</span>
+          <span class="contact-cta-arrow">↗</span>
+        </a>
+        <a href="#" class="contact-cta secondary">
+          <span class="contact-cta-label">위시캣 프로필</span>
+          <span class="contact-cta-value">Wishket Portfolio</span>
+          <span class="contact-cta-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="contact-meta">
+        <div class="contact-meta-block">
+          <div class="contact-meta-label">RESPONSE</div>
+          <div class="contact-meta-value">평균 24시간 내</div>
+        </div>
+        <div class="contact-meta-block">
+          <div class="contact-meta-label">LOCATION</div>
+          <div class="contact-meta-value">Seoul · KR</div>
+        </div>
+        <div class="contact-meta-block">
+          <div class="contact-meta-label">AVAILABLE</div>
+          <div class="contact-meta-value">신규 프로젝트 모집 중</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-big">AI&nbsp;PRODUCT&nbsp;STUDIO</div>
+    <div class="footer-row">
+      <span>© 2026 AI STUDIO</span>
+      <span>ALL&nbsp;RIGHTS&nbsp;RESERVED</span>
+      <span>v4.0&nbsp;·&nbsp;PORTFOLIO</span>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
