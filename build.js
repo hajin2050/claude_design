@@ -97,7 +97,31 @@ function main() {
   }
 
   fs.writeFileSync(path.join(DIST, 'index.html'), renderLanding(people));
+
+  // 사람별 도메인 → 해당 인물 페이지를 루트로 보여주는 rewrite 자동 생성.
+  // (vercel.json 은 Vercel 이 빌드 전에 읽으므로 저장소에 커밋되어야 한다.
+  //  build 를 로컬에서 돌려 갱신·커밋하면 됨. 멱등이라 재실행해도 동일.)
+  const rewrites = people
+    .filter((p) => p.domain)
+    .map((p) => ({
+      source: '/',
+      has: [{ type: 'host', value: p.domain }],
+      destination: `/${p.slug}`,
+    }));
+  const config = {
+    buildCommand: 'node build.js',
+    outputDirectory: 'dist',
+    cleanUrls: true,
+    trailingSlash: false,
+  };
+  if (rewrites.length) config.rewrites = rewrites;
+  fs.writeFileSync(path.join(ROOT, 'vercel.json'), `${JSON.stringify(config, null, 2)}\n`);
+
   console.log(`\nBuilt ${people.length} CV page(s) → dist/`);
+  if (rewrites.length) {
+    console.log('Domains:');
+    for (const p of people.filter((x) => x.domain)) console.log(`  ${p.domain}  →  /${p.slug}`);
+  }
 }
 
 main();
