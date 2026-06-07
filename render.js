@@ -152,7 +152,7 @@ function renderCV(d) {
       <a href="#contact" data-link><span class="nav-num">05</span>Contact</a>
     </nav>
     <a href="#contact" class="nav-cta">
-      <span>수업 문의</span>
+      <span>${d.ctaText || '수업 문의'}</span>
     </a>
   </header>
 
@@ -195,8 +195,8 @@ ${heroIndex}
   <section id="work" class="section work">
     <div class="section-head">
       <div class="section-label">
-        <span class="section-num">01 / Career</span>
-        <span class="section-name">Field experience</span>
+        <span class="section-num">01 / ${d.sec1Eyebrow || 'Career'}</span>
+        <span class="section-name">${d.sec1Name || 'Field experience'}</span>
       </div>
       <h2 class="section-title">
         ${revealTitle(d.careerTitle)}
@@ -213,8 +213,8 @@ ${d.careers.map(careerCard).join('\n\n')}
   <section id="approach" class="section approach">
     <div class="section-head">
       <div class="section-label">
-        <span class="section-num">02 / Service</span>
-        <span class="section-name">What I coach</span>
+        <span class="section-num">02 / ${d.sec2Eyebrow || 'Service'}</span>
+        <span class="section-name">${d.sec2Name || 'What I coach'}</span>
       </div>
       <h2 class="section-title">
         ${revealTitle(d.serviceTitle)}
@@ -227,7 +227,7 @@ ${d.services.map(serviceRow).join('\n')}
 
     <div class="approach-foot">
       <div class="approach-foot-block">
-        <div class="approach-foot-label">Best fit</div>
+        <div class="approach-foot-label">${d.bestFitLabel || 'Best fit'}</div>
         <ul class="approach-foot-list">
 ${d.bestFit.map((b) => `          <li>${b}</li>`).join('\n')}
         </ul>
@@ -239,8 +239,8 @@ ${d.bestFit.map((b) => `          <li>${b}</li>`).join('\n')}
   <section id="about" class="section about">
     <div class="section-head">
       <div class="section-label">
-        <span class="section-num">03 / Profile</span>
-        <span class="section-name">Education & License</span>
+        <span class="section-num">03 / ${d.sec3Eyebrow || 'Profile'}</span>
+        <span class="section-name">${d.sec3Name || 'Education & License'}</span>
       </div>
       <h2 class="section-title about-title">
         ${revealTitle(d.profileTitle)}
@@ -321,7 +321,7 @@ ${contactTitle(d.contactTitle)}
       </div>
       <div>
         <dt>Availability</dt>
-        <dd>신규 회원 모집 중</dd>
+        <dd>${d.availability || '신규 회원 모집 중'}</dd>
       </div>
     </dl>
   </section>

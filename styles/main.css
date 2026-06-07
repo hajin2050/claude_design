@@ -1138,6 +1138,84 @@ body.landing {
   .people-photo { width: 64px; height: 80px; }
 }
 
+/* ==========================================================================
+   THEME — Field / Industrial
+   묵직한 산세리프, serif(이탤릭) 제거, 강한 액센트. 현장·실무 전문가용.
+   (맨 아래에서 기존 값을 덮어쓴다)
+   ========================================================================== */
+:root {
+  --paper: #e8e6e0;
+  --paper-soft: #dcd9d1;
+  --ink: #131210;
+  --ink-soft: #2e2c27;
+  --ink-muted: rgba(19, 18, 16, 0.55);
+  --ink-line: rgba(19, 18, 16, 0.16);
+  --ink-line-strong: rgba(19, 18, 16, 0.3);
+
+  --accent: #e2440f;
+  --accent-soft: #ff7a3d;
+
+  --font-serif: "Pretendard Variable", Pretendard, "Inter", system-ui, sans-serif;
+}
+
+/* serif / italic 액센트 → 묵직한 액센트 산세리프로 통일 */
+em, i,
+.hero-title .word.italic,
+.section-title .italic,
+.cover-mega .italic,
+.strip-text .italic,
+.about-num,
+.faq-q,
+.portrait-lead,
+.contact-cta-value,
+.intro-name,
+.nav-logo-text,
+.landing-title em,
+.people-name em,
+.project-name em,
+.cover-mega,
+.footer-mark,
+.approach-num {
+  font-family: var(--font-display);
+  font-style: normal;
+}
+
+em, i { font-weight: 800; color: var(--accent); }
+
+.hero-title { font-weight: 800; letter-spacing: -0.05em; }
+.hero-title .word.italic { font-weight: 800; color: var(--accent); }
+
+.section-title { font-weight: 800; }
+.section-title .italic { font-weight: 800; }
+
+.strip-text { font-weight: 700; }
+.strip-text .italic { font-weight: 800; }
+
+.cover-mega { font-weight: 800; letter-spacing: -0.03em; }
+.cover-mega .italic { font-weight: 800; opacity: 1; font-size: 1em; color: currentColor; }
+
+.project-name { font-weight: 800; }
+.project-name em { font-weight: 800; }
+
+.faq-q { font-weight: 700; }
+.about-num { font-weight: 800; }
+.portrait-lead { font-weight: 700; }
+.contact-cta-value { font-weight: 700; }
+.intro-name { font-weight: 800; letter-spacing: -0.02em; }
+.nav-logo-text { font-weight: 800; }
+.footer-mark { font-weight: 900; }
+.contact-title { font-weight: 800; }
+.contact-title .italic { font-weight: 800; }
+.landing-title { font-weight: 800; }
+.landing-title em, .people-name em { font-weight: 800; }
+.approach-num { font-weight: 800; }
+
+/* 카드 02: 초록 토포 → 차콜 스틸 */
+.project-cover--02 { background: linear-gradient(155deg, #2a2a2e 0%, #161618 100%); }
+
+/* 라벨·테두리 살짝 더 단단하게 */
+.section-num, .project-index-num { font-weight: 700; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
